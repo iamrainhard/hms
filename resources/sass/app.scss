@@ -1,0 +1,19 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+$fa-font-path: "../webfonts";
+
+// Bootstrap
+@import '~startbootstrap-sb-admin-2/scss/sb-admin-2';
+@import '~bootstrap/scss/bootstrap';
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+.form-control-select {
+    font-size: .8rem;
+    border-radius: 10rem;
+}
