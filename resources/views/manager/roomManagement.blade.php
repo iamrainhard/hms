@@ -9,7 +9,7 @@
         @if($rooms !== null)
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Listing of all Hostel Members with Approved Requests</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Listing of all Hostel Rooms with Number of Members</h6>
             </div>
 
             <div class="card-body">

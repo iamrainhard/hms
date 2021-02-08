@@ -23,9 +23,8 @@ class RoomController extends Controller
         //assign the manager to associated hostel data in summary view
         if($user->role == 'manager' && $user->hostel !== null) {
             $managerhostel = $user->hostel;
-            $rooms = $managerhostel->rooms;
-
-
+            $rooms = $managerhostel->therooms;
+//            dd($rooms);
         }else{
             $managerhostel = null;
             $rooms = null;

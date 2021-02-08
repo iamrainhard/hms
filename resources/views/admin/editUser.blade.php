@@ -49,16 +49,23 @@
                         </div>
                     @if($hostels !== null)
                         <div class="form-group">
-                            <label for="hostel_id">Assign Hostel</label>
-                            <select name="hostel_id" id="hostel_id" class="form-control  @error('hostel_id') is-invalid @enderror" required autocomplete="hostel_id" >
+                            <label for="user_hostel_id">Assign Hostel</label>
+                            <select name="hostel_id" id="user_hostel_id" class="form-control  @error('hostel_id') is-invalid @enderror" required autocomplete="hostel_id" >
                                 @if($user->hostel_id !== null)
-                                    <option selected value="{{$user->hostel_id}}">{{$user->hostel->name}}</option>
+{{--                                    <option selected value="{{$user->hostel_id}}">{{$user->hostel->name}}</option>--}}
+                                    @foreach($hostels as $hostel)
+                                        @if($user->hostel_id == $hostel->id)
+                                            <option selected value="{{$hostel->id}}">{{$hostel->name}}</option>
+                                        @endif
+                                        <option value="{{ $hostel->id }}">{{ $hostel->name }}</option>
+                                    @endforeach
                                 @else
                                     <option selected disabled value="">Select Hostel below</option>
+                                    @foreach($hostels as $hostel)
+                                        <option value="{{ $hostel->id }}">{{ $hostel->name }}</option>
+                                    @endforeach
                                 @endif
-                                @foreach($hostels as $hostel)
-                                    <option value="{{ $hostel->id }}">{{ $hostel->name }}</option>
-                                @endforeach
+
                             </select>
 
                             @error('hostel_id')
@@ -68,31 +75,29 @@
                             @enderror
                         </div>
                     @endif
+
+                        <div class="form-group">
+                            <label for="user_room_id">Assign Room</label>
+                            <select name="room_id" id="user_room_id" class="form-control">
+                                @if($user->room_id !== null)
+                                    <option selected value="{{ $user->room->id }}">{{ $user->room->room_number }}</option>
+                                @endif
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label for="role">User Role</label>
                             <select name="role" id="role" class="form-control  @error('role') is-invalid @enderror" required autocomplete="role" >
-                                @if($user->hostel_id !== null)
-                                    @if($user->role == 'user')
-                                        <option selected value="user">Normal User</option>
-                                        <option value="manager">Hostel Manager</option>
-                                        <option value="admin">Administrator</option>
-                                    @elseif($user->role == 'manager')
-                                        <option  value="user">Normal User</option>
-                                        <option selected value="manager">Hostel Manager</option>
-                                        <option value="admin">Administrator</option>
-                                    @else
-                                        <option  value="user">Normal User</option>
-                                        <option  value="manager">Hostel Manager</option>
-                                        <option selected value="admin">Administrator</option>
-                                    @endif
+                                @if($user->role == 'user')
+                                    <option selected value="user">Normal User</option>
+                                    <option value="admin">Administrator</option>
+                                @elseif($user->role == 'manager')
+                                    <option selected value="manager">Hostel Manager</option>
+                                    <option  value="user">Normal User</option>
+                                    <option  value="admin">Administrator</option>
                                 @else
-                                    @if($user->role == 'user')
-                                        <option selected value="user">Normal User</option>
-                                        <option value="admin">Administrator</option>
-                                    @else
-                                        <option  value="user">Normal User</option>
-                                        <option selected value="admin">Administrator</option>
-                                    @endif
+                                    <option  value="user">Normal User</option>
+                                    <option selected value="admin">Administrator</option>
                                 @endif
                             </select>
 

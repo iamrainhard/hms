@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hostel;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -32,8 +33,21 @@ class HostelController extends Controller
         $data = request()->validate([
             'name' => 'required|unique:hostels|sometimes',
             'gender' => 'required',
+            'rooms' => 'required',
         ]);
-        Hostel::create($data);
+        $hostel = Hostel::create($data);
+
+        $rooms = $data['rooms'];
+        $counter = 1;
+
+        while ($counter<=$rooms) {
+            $room = new Room();
+            $room->room_number = $counter;
+            $room->hostel_id = $hostel->id;
+            $room->save();
+            $counter++;
+        }
+
         return redirect('/hostels');
 
     }

@@ -115,11 +115,11 @@
                 <i class="fas fa-cogs"></i>
                 <span>Hostels Control</span></a>
         </li>
-        <li class="nav-item ">
+        {{--<li class="nav-item ">
             <a class="nav-link" href="/rooms/create">
                 <i class="fas fa-cogs"></i>
                 <span>Add Room</span></a>
-        </li>
+        </li>--}}
         <li class="nav-item ">
             <a class="nav-link" href="/users">
                 <i class="fas fa-user-cog"></i>

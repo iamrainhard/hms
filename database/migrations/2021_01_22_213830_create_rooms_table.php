@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('room_number');
             $table->unsignedBigInteger('hostel_id')->nullable();
-            $table->foreign('hostel_id')->references('id')->on('hostels')->onDelete('set null');
+            $table->foreign('hostel_id')->references('id')->on('hostels')->onDelete('cascade');
             $table->timestamps();
         });
     }

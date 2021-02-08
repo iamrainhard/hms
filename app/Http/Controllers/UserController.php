@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hostel;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +26,15 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $this->authorize('isAdmin');
-        $hostels = Hostel::all();
+        $hostels = Hostel::where('gender', $user->gender)->get();
         return view('admin.editUser', compact('user', 'hostels' ));
+    }
+
+    public function getRoom(Request $request)
+    {
+        $data['rooms'] = Room::where("hostel_id",$request->hostel_id)
+            ->get(["room_number","id"]);
+        return response()->json($data);
     }
 
     public function update(Request $request,User $user)

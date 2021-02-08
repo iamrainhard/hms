@@ -11,6 +11,7 @@ class Hostel extends Model
     protected $fillable = [
         'name',
         'gender',
+        'rooms',
         'capacity',
     ];
 
@@ -24,7 +25,7 @@ class Hostel extends Model
         return $this->hasMany(Request::class);
     }
 
-    public function rooms()
+    public function therooms()
     {
         return $this->hasMany(Room::class);
     }

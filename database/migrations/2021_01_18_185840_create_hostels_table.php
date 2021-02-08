@@ -17,6 +17,7 @@ class CreateHostelsTable extends Migration
             $table->id();
             $table->string('name');
             $table->char('gender');
+            $table->string('rooms');
             $table->enum('capacity', ['free', 'full'])->default('free');
             $table->timestamps();
         });

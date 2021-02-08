@@ -36,12 +36,17 @@ Route::put('/hostels/{hostel}', [\App\Http\Controllers\HostelController::class, 
 Route::delete('/hostels/{hostel}', [\App\Http\Controllers\HostelController::class, 'destroy']);
 
 Route::get('/rooms/management', [\App\Http\Controllers\RoomController::class, 'index']);
-Route::get('/rooms/create', [\App\Http\Controllers\RoomController::class, 'create']);
-Route::post('/rooms', [\App\Http\Controllers\RoomController::class, 'store']);
+//Route::get('/rooms/create', [\App\Http\Controllers\RoomController::class, 'create']);
+//Route::post('/rooms', [\App\Http\Controllers\RoomController::class, 'store']);
 Route::delete('/rooms/{room}', [\App\Http\Controllers\RoomController::class, 'destroy']);
 
 Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
 Route::get('/users/{user}/edit', [\App\Http\Controllers\UserController::class, 'edit']);
+
+//json routes
+Route::post('/get-room-by-hostel', [\App\Http\Controllers\UserController::class, 'getRoom']);
+//end json routes
+
 Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update']);
 Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'detsroy']);
 Route::get('/userroom/{user}/edit', [\App\Http\Controllers\UserController::class, 'userRoom']);

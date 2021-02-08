@@ -16,7 +16,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Hostel Name:</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -25,12 +25,27 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            <div class="form-group row">
+                                <label for="rooms" class="col-md-4 col-form-label text-md-right">Number Of Rooms:</label>
+
+                                <div class="col-md-6">
+                                    <input id="rooms" placeholder="Ex.100" type="number" class="form-control @error('rooms') is-invalid @enderror" name="rooms" value="{{ old('rooms') }}"  autocomplete="rooms" autofocus>
+
+                                    @error('rooms')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">Hostel Gender:</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control @error('gender') is-invalid @enderror" id="gender" name="gender" required autofocus>
-                                        <option>Select Below</option>
+                                    <select class="form-control @error('gender') is-invalid @enderror" id="gender" name="gender"  autofocus>
+                                        <option selected disabled value="">Select Below</option>
                                         <option value="m">Men's Hostel</option>
                                         <option value="f">Women's Hostel</option>
                                     </select>
