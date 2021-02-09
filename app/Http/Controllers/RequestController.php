@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hostel;
 use App\Models\Request;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,6 +82,12 @@ class RequestController extends Controller
         $this->authorize('isManager');
         return view('manager.editRequest', compact('request'));
     }
+    public function getRoom(\Illuminate\Http\Request $request)
+    {
+        $data['rooms'] = Room::where("hostel_id",$request->hostel_id)
+            ->get();
+        return response()->json($data);
+    }
 
     public function update(Request $request)
     {
@@ -89,12 +96,14 @@ class RequestController extends Controller
         $data = request()->validate([
             'status' => 'required',
         ]);
-//        dd($request['user_id']);
+        $room = request('room_id');
+//        dd($room);
         $request->update($data);
 
         if($data['status'] == 'approved') {
             $user = User::find($request['user_id']);
             $user->hostel_id = $request['hostel_id'];
+            $user->room_id = $room;
             $user->save();
             return redirect('/requests/approved');
         }else{

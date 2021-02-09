@@ -17,8 +17,8 @@
                             @method('PUT')
                             @csrf
                             <div class="form-group">
-                                <label for="status">Update Request Status</label>
-                                <select class="form-control @error('status') is-invalid @enderror" required autocomplete="status" autofocus id="status" name="status">
+                                <label for="requestStatus">Update Request Status</label>
+                                <select class="form-control @error('status') is-invalid @enderror" required autocomplete="status" autofocus id="requestStatus" name="status">
                                     <option value="" selected disabled>Select Status below</option>
                                     <option value="approved" >Approve Request</option>
                                     <option value="rejected" >Reject Request</option>
@@ -28,6 +28,14 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                            </div>
+                            <div class="form-group" id="requestRoomId">
+                                {{--<label for="request_room_id">Assign Room</label>
+                                <select name="room_id" id="request_room_id" class="form-control">
+                                    @if($user->room_id !== null)
+                                        <option selected value="{{ $user->room->id }}">{{ $user->room->room_number }}</option>
+                                    @endif
+                                </select>--}}
                             </div>
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary">Update Request</button>
@@ -39,3 +47,7 @@
         </div>
     </div>
 @endsection
+
+<script type="text/javascript">
+    var hostel_id = {{$request->hostel_id}};
+</script>

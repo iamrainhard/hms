@@ -45,6 +45,7 @@ Route::get('/users/{user}/edit', [\App\Http\Controllers\UserController::class, '
 
 //json routes
 Route::post('/get-room-by-hostel', [\App\Http\Controllers\UserController::class, 'getRoom']);
+Route::post('/get-room-by-request', [\App\Http\Controllers\RequestController::class, 'getRoom']);
 //end json routes
 
 Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update']);
