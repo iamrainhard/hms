@@ -15,7 +15,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Listing of all Approved Hostel Requests</h6>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive-lg">
                         <thead>
                         <tr>
                             <th scope="col">Id</th>
@@ -33,7 +33,7 @@
                                 <td>{{date('d-m-y', strtotime($request->updated_at))}}</td>
                                 <td>
                                     @if($request->user->room_id !== null)
-                                        <span class="text-success">Assigned!</span>
+                                        <span class="text-success">Assigned Room {{$request->user->room->room_number}}</span>
                                     @else
                                         <span class="text-danger"><em>Not Assigned!</em></span>
                                     @endif

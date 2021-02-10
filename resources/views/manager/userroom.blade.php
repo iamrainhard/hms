@@ -25,7 +25,9 @@
                                         <option selected disabled value="">Select Room below</option>
                                     @endif
                                     @foreach($rooms as $room)
+                                        @if($room->id !== $user->room_id)
                                         <option value="{{ $room->id }}">Room {{ $room->room_number }}</option>
+                                            @endif
                                     @endforeach
                                 </select>
                                 @error('room_id')

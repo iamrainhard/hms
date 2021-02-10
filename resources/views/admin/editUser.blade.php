@@ -57,7 +57,9 @@
                                         @if($user->hostel_id == $hostel->id)
                                             <option selected value="{{$hostel->id}}">{{$hostel->name}}</option>
                                         @endif
+                                    @if($hostel->id !== $user->hostel_id)
                                         <option value="{{ $hostel->id }}">{{ $hostel->name }}</option>
+                                            @endif
                                     @endforeach
                                 @else
                                     <option selected disabled value="">Select Hostel below</option>

@@ -107,6 +107,10 @@ class RequestController extends Controller
             $user->save();
             return redirect('/requests/approved');
         }else{
+            $user = User::find($request['user_id']);
+            $user->hostel_id = null;
+            $user->room_id = null;
+            $user->save();
             return redirect('/requests/all');
         }
 

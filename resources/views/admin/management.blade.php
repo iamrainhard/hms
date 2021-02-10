@@ -86,7 +86,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Hostel Managers Summary</h6>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-responsive-lg">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>

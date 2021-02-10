@@ -13,11 +13,11 @@
                             @if($userrequest !== null)
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Accordion -->
-                                    <a href="#requestCard" class="d-block card-header py-3 collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="requestCard">
+                                    <a href="#requestCard" class="d-block card-header py-3 " data-toggle="collapse" role="button" aria-expanded="true" aria-controls="requestCard">
                                         <h6 class="m-0 font-weight-bold text-primary">Your Request</h6>
                                     </a>
                                     <!-- Card Content - Collapse -->
-                                    <div class="collapse" id="requestCard" style="">
+                                    <div class="collapsed" id="requestCard" style="">
                                         <div class="card-body">
                                             <h5 class="text-dark">Your Hostel Request:</h5>
                                             <p>{{$userrequest->hostel->name}}</p>
@@ -55,11 +55,11 @@
                             @if($userhostel !== null)
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Accordion -->
-                                    <a href="#hostelCard" class="d-block card-header py-3 collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="hostelCard">
+                                    <a href="#hostelCard" class="d-block card-header py-3 " data-toggle="collapse" role="button" aria-expanded="true" aria-controls="hostelCard">
                                         <h6 class="m-0 font-weight-bold text-primary">Hostel details</h6>
                                     </a>
                                     <!-- Card Content - Collapse -->
-                                    <div class="collapse" id="hostelCard" style="">
+                                    <div class="collapsed" id="hostelCard" style="">
                                         <div class="card-body">
                                             <h5 class="text-dark">Your Approved Hostel Is:</h5>
                                             <p>{{$userhostel->name}}</p>

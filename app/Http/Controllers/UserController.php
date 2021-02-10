@@ -54,7 +54,7 @@ class UserController extends Controller
     public function userRoom(User $user)
     {
         $this->authorize('isManager');
-        $rooms = $user->hostel->rooms;
+        $rooms = $user->hostel->therooms;
 //        dd($rooms);
         return view('manager.userroom', compact('user', 'rooms'));
     }

@@ -97,7 +97,7 @@
                         </div>
                         <div class="card-body">
                             @if($members !== null)
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-responsive-lg">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
